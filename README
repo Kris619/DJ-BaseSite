@@ -1,0 +1,31 @@
+DJ-BaseSite was written in Python 2.7 and Django 1.4
+
+Description:
+DJ-BaseSite (or Django-BaseSite) is a customizable login and register system with required email activation. While most people just use django-registration, I decided to write my own to learn more about Django. 
+
+NOTE TO DEVS:
+A deactivation system hasn't been added. The login system needs to check attempts and display a CAPTCHA after a certain amount, this isn't included either. It also doesn't have an account recovery option. I plan to implement all of these things in future updates.
+
+DJ-BaseSite is released under the New BSD License (The BSD 3-Clause License), refer to the LICENSE file.
+
+
+Instructions
+1. Install Python 2.7 (python.org) and Django 1.4 (djangoproject.com)
+2. Open up the config.txt file and change the data under CUSTOM VARIABLES to your information. The configuration variable meanings are below.
+3. Execute the SetupProject.py script and enter the project name, it will create a project based on your configuration.
+4. Run the SyncDB script or "python manage.py syncdb" and create a super user.
+5. Run the RunServer script or "python manage.py runserver" and check out your new website at localhost:8000 or 127.0.0.1:8000 in your browser.
+
+DJ-BaseSite uses Recaptcha to prevent bots from creating accounts, so you'll need to get private and public keys from the website: http://www.google.com/recaptcha
+
+Configuration Variable Meanings.
+
+baseurl - It is used to create activation and deactivation links ( in views.py in register_user() )
+admin_name/email - adds a name and email to the ADMINS tuple in settings.py ( http://docs.djangoproject.com/en/dev/ref/settings/#admins )
+secret_key - A secret randomly generated string of characters (don't use spaces) ( http://www.random.org/passwords/?mode=advanced )
+captcha_publickey/privatekey - DJ-BaseSite uses Recaptcha to prevent bots from creating accounts, get keys at google.com/recaptcha
+HOSTsmpt - The SMPT server address with the email used to send activation emails. If your email doesn't support SMPT I highly suggest GMAIL.
+HOSTemail - The email address
+HOSTpass - The email's password
+
+NOTE: It creates a development project, DEBUG is set to True in the settings.py so it is in no condition for deployment.

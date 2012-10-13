@@ -1,0 +1,95 @@
+// Copyright (c) 2012, Kris Lamoureux
+// All rights reserved.
+
+// DJ-BaseSite is released under the New BSD License
+// Read the LICENSE file.
+
+
+// Put all comments on new lines on the first 2
+// characters of the line.
+
+//		CUSTOM VARIABLES
+v baseurl http://127.0.0.1:8000
+
+v admin_name Kris619
+v admin_email KrisPublicEmail@gmail.com
+
+
+// Change this to something random and secret
+// http://www.random.org/passwords/?mode=advanced
+v secret_key WK9zRDBQCUSqzU64Jf5sxta4X9TnKDPHhuXwA7Zj
+
+
+// Get free captcha keys here: google.com/recaptcha
+v captcha_publickey asdf
+v captcha_privatekey asdf
+
+v HOSTsmtp smtp.gmail.com
+v HOSTemail KrisPublicEmail@gmail.com
+v HOSTpass HereItIs_HaveMyAccount
+
+
+
+
+
+
+
+
+
+// !!!!!!HEY, PAY ATTENTION FOR A SECOND!!!!!!
+// Don't mess with anything below unless you
+// know what you are doing.
+
+// 		DYNAMIC FILES
+%here%/myproject/manage.py 1
+%here%/myproject/myproject/wsgi.py 1
+%here%/myproject/myproject/settings.py 1
+%here%/myproject/myproject/urls.py 1
+%here%/myproject/manage.py 1
+
+//		STATIC FILES
+%here%/myproject/myproject/__init__.py 2
+%here%/myproject/myproject/views.py 2
+%here%/myproject/myproject/validation.py 2
+%here%/myproject/myproject/captcha.py 2
+%here%/myproject/RunServer.bat 2
+%here%/myproject/SyncDB.bat 2
+
+// 		Activation Email
+%here%/myproject/myproject/activation_email.html 2
+
+// Add these dir commands before actually adding 
+// the files from inside the folders.
+
+//		HTML/CSS
+dir static
+dir static/css
+dir templates
+%here%/myproject/myproject/static/css/default.css 2
+%here%/myproject/myproject/templates/base.html 2
+%here%/myproject/myproject/templates/index.html 2
+%here%/myproject/myproject/templates/error.html 2
+
+// 		Auth
+dir templates/auth
+%here%/myproject/myproject/templates/auth/activated.html 2
+%here%/myproject/myproject/templates/auth/disabled.html 2
+%here%/myproject/myproject/templates/auth/logged_in.html 2
+%here%/myproject/myproject/templates/auth/logged_out.html 2
+%here%/myproject/myproject/templates/auth/login.html 2
+%here%/myproject/myproject/templates/auth/newaccount.html 2
+%here%/myproject/myproject/templates/auth/registration.html 2
+
+// 		Admin
+dir templates/admin
+%here%/myproject/myproject/templates/admin/base_site.html 2
+
+// Backend Django app
+dir backends root
+%here%/myproject/backends/__init__.py 2
+%here%/myproject/backends/AuthOverride.py 2
+
+// Profile Django app
+dir accountprofile root
+%here%/myproject/accountprofile/__init__.py 2
+%here%/myproject/accountprofile/models.py 2

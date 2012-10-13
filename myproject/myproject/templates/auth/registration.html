@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if registration_errors %}
+	<div class="register_error">
+		<ul>
+			{% for an_error in registration_errors %}
+				<li>{{ an_error }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endif %}
+
+<h1>Registration</h1>
+<form action="/register/" method="post">
+{% csrf_token %}
+<table class="register_form" align="center">
+	<tr>
+		<td>User<span class="asterisk">*</span></td>
+		<td><input type="text" name="usern" /></td>
+	</tr>
+	<tr>
+		<td>Pass<span class="asterisk">*</span></td>
+		<td><input type="password" name="passw" /></td>
+	</tr>
+	<tr>
+		<td>Pass (again)<span class="asterisk">*</span></td>
+		<td><input type="password" name="repassw" /></td>
+	</tr>
+	<tr>
+		<td>Email<span class="asterisk">*</span></td>
+		<td><input type="text" name="email" /></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="humantest">
+			{{captcha_test|safe}}
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Register"></td>
+	</tr>
+</table>
+
+<div class="required">Fields with the asterick '<span class="asterisk">*</span>' are required</div>
+</form>
+{% endblock %}

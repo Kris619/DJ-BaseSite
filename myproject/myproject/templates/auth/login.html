@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{LOGIN_ERROR|safe}}
+
+{% if login_errors %}
+	<div class="login_error">
+		Username and password did not match.
+	</div>
+{% endif %}
+
+<h1>Login</h1>
+<form action="/login/" method="post">
+	{% csrf_token %}
+	<table class="loginform"  align="center">
+		<tr>
+			<td>User</td>
+			<td><input type="text" name="username" /></td>
+		</tr>
+		<tr>
+			<td>Pass</td>
+			<td><input type="password" name="password" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Login"></td>
+		</tr>
+    </table> 
+</form>
+{% endblock %}

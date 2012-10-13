@@ -1,0 +1,40 @@
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+
+#############
+## Python
+#############
+
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Database
+*.db
+
+# Batch
+Py2Start_SetupProject.bat
+DjangoBatchManager.bat
+
+# My personal config
+config_.txt
+

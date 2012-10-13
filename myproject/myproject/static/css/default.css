@@ -1,0 +1,113 @@
+/* APPLYS TO ALL TEMPLATES */
+body {
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 0;
+	margin: 0;
+	}
+
+.content {
+	padding: 10px;
+	text-align: center;
+	}
+	
+.usernav a:link {color:#FFFFFF;}      /* unvisited link */
+.usernav a:visited {color:#FFFFFF;}  /* visited link */
+.usernav a:hover {color:#FFFFFF;}  /* mouse over link */
+.usernav a:active {color:#FFFFFF;}  /* selected link */
+
+.globalnav a:link {color:#000000;}      /* unvisited link */
+.globalnav a:visited {color:#000000;}  /* visited link */
+.globalnav a:hover {color:#000000;}  /* mouse over link */
+.globalnav a:active {color:#000000;}  /* selected link */
+
+.usernav {
+	text-align: right;
+	padding: 10px;
+	background-color: #000000;
+	}
+
+.globalnav {
+	text-align: center;
+	font-size: 20px;
+	}
+	
+.humantest {
+	text-align: center;
+	}
+
+/* HOME PAGE CSS */
+
+
+
+/* LOGIN CSS */
+.loginform {
+	text-align: center;
+	}
+
+table.loginform td  { 
+	padding: 5px; 
+	}
+
+.loginout {
+	font-size: 25px;
+	}
+	
+.returnlink a:link {color:#000000;}      /* unvisited link */
+.returnlink a:visited {color:#000000;}  /* visited link */
+.returnlink a:hover {color:#000000;}  /* mouse over link */
+.returnlink a:active {color:#000000;}  /* selected link */
+
+/* REGISTER CSS */
+.register_form {
+	text-align: center;
+	}
+
+table.register_form td { 
+	padding: 5px;
+	}
+
+.asterisk {
+	color: #FF0000;
+	font-size: 17px;
+	padding: 3px;
+	}
+
+.tagpsnrequire {
+	padding-top: 10px;
+	}
+
+.newaccount {
+	font-size: 25px;
+	padding: 10px;
+}
+
+/* ERROR RELATED CSS */
+
+.error {
+	color: #FF0000;
+	font-size: 25px;
+	padding: 12px;
+	text-align: center;
+	background-color: #000000;
+	font-family:"Lucida Console", Monaco, monospace
+	}
+	
+.register_error {
+	color: #FF0000;
+	font-size: 18px;
+	padding: 6px;
+	text-align: center;
+	background-color: #000000;
+	font-family:"Lucida Console", Monaco, monospace
+	}
+
+.login_error {
+	color: #FF0000;
+	font-size: 18px;
+	padding: 6px;
+	text-align: center;
+	background-color: #000000;
+	font-family:"Lucida Console", Monaco, monospace
+	}
