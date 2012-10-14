@@ -10,6 +10,7 @@
 
 //		CUSTOM VARIABLES
 v baseurl http://127.0.0.1:8000
+v basetitle DJ-BaseSite
 
 v admin_name Kris619
 v admin_email KrisPublicEmail@gmail.com
@@ -38,7 +39,9 @@ v HOSTpass HereItIs_HaveMyAccount
 
 // !!!!!!HEY, PAY ATTENTION FOR A SECOND!!!!!!
 // Don't mess with anything below unless you
-// know what you are doing.
+// know what you are doing. You can easily 
+// crash the Setup by putting things in the 
+// wrong order. 
 
 // 		DYNAMIC FILES
 %here%/myproject/manage.py 1
@@ -46,6 +49,14 @@ v HOSTpass HereItIs_HaveMyAccount
 %here%/myproject/myproject/settings.py 1
 %here%/myproject/myproject/urls.py 1
 %here%/myproject/manage.py 1
+
+// Add these dir commands before actually adding 
+// the files from inside the folders.
+
+// 		Admin
+dir templates
+dir templates/admin
+%here%/myproject/myproject/templates/admin/base_site.html 1
 
 //		STATIC FILES
 %here%/myproject/myproject/__init__.py 2
@@ -58,13 +69,9 @@ v HOSTpass HereItIs_HaveMyAccount
 // 		Activation Email
 %here%/myproject/myproject/activation_email.html 2
 
-// Add these dir commands before actually adding 
-// the files from inside the folders.
-
 //		HTML/CSS
 dir static
 dir static/css
-dir templates
 %here%/myproject/myproject/static/css/default.css 2
 %here%/myproject/myproject/templates/base.html 2
 %here%/myproject/myproject/templates/index.html 2
@@ -79,10 +86,6 @@ dir templates/auth
 %here%/myproject/myproject/templates/auth/login.html 2
 %here%/myproject/myproject/templates/auth/newaccount.html 2
 %here%/myproject/myproject/templates/auth/registration.html 2
-
-// 		Admin
-dir templates/admin
-%here%/myproject/myproject/templates/admin/base_site.html 2
 
 // Backend Django app
 dir backends root

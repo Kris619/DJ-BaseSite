@@ -16,6 +16,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 baseurl = "<%baseurl%>"  # "example.com"
+base_title = "<%basetitle%>"
 
 '''
 You need to sign up at http://recaptcha.net/ for a public/private key to use their CAPTCHA service.

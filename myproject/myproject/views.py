@@ -31,7 +31,8 @@ from django.core.mail import EmailMessage
 from django.core import mail
 
 # Variables from Settings.py
-from settings import EMAIL_HOST_USER, baseurl, EMAIL_MESSAGE
+from settings import EMAIL_HOST_USER, EMAIL_MESSAGE
+from settings import baseurl, base_title
 
 # User Profile model
 from accountprofile.models import UserProfile
@@ -149,27 +150,25 @@ def login_user(request):
 				# No object so the username and password are invalid.
 				login_errors = True
 				responce = render_to_response(	
-											'auth/login.html', 
-											locals(), 
-											context_instance=RequestContext(request)
-											)
+					'auth/login.html', 
+					locals(), 
+					context_instance=RequestContext(request)
+					)
 
 		else:
 			# User isn't online and hasn't sent any POST data, give them a login form.
 			responce = render_to_response(
-										'auth/login.html',
-										locals(),
-										context_instance=RequestContext(request)
+				'auth/login.html',
+				locals(),
+				context_instance=RequestContext(request)
 										)
 
 	else:
 		# User is logged on, don't let them login until he's logged out.
 		user_navigation = user_nav(request.user.username)
 		error = "You're already logged on."
-		responce = render_to_response(	
-									'error.html', 
-									locals()
-									)
+		responce = render_to_response('error.html',locals())
+
 	return responce
 
 def register_user(request):
@@ -198,11 +197,11 @@ def register_user(request):
 			
 			# Is human?
 			HumanTestResult = captcha.submit(
-											request.POST["recaptcha_challenge_field"],
-											request.POST["recaptcha_response_field"],
-											captcha_privatekey,
-											get_ip(request)
-											)
+				request.POST["recaptcha_challenge_field"],
+				request.POST["recaptcha_response_field"],
+				captcha_privatekey,
+				get_ip(request)
+				)
 
 			# If not human: display errors
 			if HumanTestResult.is_valid:				
@@ -241,34 +240,43 @@ def register_user(request):
 			else:
 				registration_errors.append("Invalid human verification code.")
 				captcha_test = captcha.displayhtml(
-													captcha_publickey, 
-													False, 
-													HumanTestResult.error_code)
+					captcha_publickey, 
+					False, 
+					HumanTestResult.error_code
+					)
+					
+			# Connect to SMTP server
+			connection = mail.get_connection()
+			connection.open()
 
 			# If no errors: create user.
 			if len(registration_errors) == 0:
 				new_user = User.objects.create_user(
-									username,
-									email,
-									request.POST["repassw"]
-									)				
+					username,
+					email,
+					request.POST["repassw"]
+					)
+
 				new_user.is_active = True
 				new_user.save()
 				
 				# Create activation key and user profile
 				activation_key = UserActivationKey()
 				profile = UserProfile(
-									activatekey=activation_key, 
-									activated=False,
-									user=new_user)
+					activatekey=activation_key, 
+					activated=False,
+					user=new_user)
 				profile.save()
 				
 				# User is created and saved. Send an activation link via email
-				connection = mail.get_connection()
-				connection.open()
 				
-				message_activateurl = baseurl+"/activate/?key="+str(activation_key)+"&user="+str(new_user.username)
-				message_deactivateurl = baseurl+"/deactivate/?key="+str(activation_key)+"&user="+str(new_user.username)
+				# Activation link
+				message_activateurl = baseurl+"/activate/?key="+str(activation_key)
+				message_activateurl = message_activateurl+"&user="+str(new_user.username)
+				
+				# Deactivation link
+				message_deactivateurl = baseurl+"/deactivate/?key="+str(activation_key)
+				message_deactivateurl = message_deactivateurl+"&user="+str(new_user.username)
 				
 				f = open(EMAIL_MESSAGE, 'r')
 				message = f.read()
@@ -278,35 +286,39 @@ def register_user(request):
 				message = message.replace("<$disablelink>", message_deactivateurl)
 				
 				email = EmailMessage(
-									"Account Activation", 
-									message,
-									EMAIL_HOST_USER,
-									[new_user.email])
+					"Account Activation", 
+					message,
+					EMAIL_HOST_USER,
+					[new_user.email]
+					)
+
 				email.send()
 				connection.close()
 				
 				# Return new account page
 				accountname = new_user.username
 				responce = render_to_response(	
-										'auth/newaccount.html', 
-										locals(), 
-										context_instance=RequestContext(request)
-									)
+					'auth/newaccount.html', 
+					locals(), 
+					context_instance=RequestContext(request)
+					)
+
 			else:
 				# Return registration form with errors in registration_errors
 				responce = render_to_response(	
-										'auth/registration.html', 
-										locals(), 
-										context_instance=RequestContext(request)
-									)
+					'auth/registration.html', 
+					locals(), 
+					context_instance=RequestContext(request)
+					)
 
 		# If user hasn't sent POST data (not logged on)
 		else:
 			responce = render_to_response(	
-									'auth/registration.html', 
-									locals(), 
-									context_instance=RequestContext(request)
-								)
+				'auth/registration.html', 
+				locals(), 
+				context_instance=RequestContext(request)
+				)
+
 	# User is logged on
 	else:
 		user_navigation = user_nav(request.user.username)
@@ -346,14 +358,14 @@ def activate_user(request):
 	if key_correct:
 		user_name = user.username
 		responce = render_to_response(	
-									'auth/activated.html', 
-									locals()
-									)
+			'auth/activated.html', 
+			locals()
+			)
 	else:
 		error = "Activation failed."
 		responce = render_to_response(	
-									'error.html', 
-									locals()
-									)
+			'error.html', 
+			locals()
+			)
 		
 	return responce
