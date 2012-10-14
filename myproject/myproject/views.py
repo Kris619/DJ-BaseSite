@@ -38,7 +38,7 @@ from settings import baseurl, base_title
 from accountprofile.models import UserProfile
 
 # Website base title
-base_title = "Base Site - "
+base_title = base_title+" - "
 
 # Global Site Navigation 
 def global_nav():
