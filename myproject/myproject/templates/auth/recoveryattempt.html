@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Account Recovery</h1>
+<form action="/recover/" method="post">
+<input type="hidden" value="{{the_key|safe}}" name="key" />
+<input type="hidden" value="{{the_user|safe}}" name="user" />
+{% csrf_token %}
+<table class="recovery_form" align="center">
+	<tr>
+		<td>Password</td>
+		<td><input type="password" name="p1" /></td>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input type="password" name="p2" /></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="humantest">
+			{{captcha_test|safe}}
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Recover Account"></td>
+	</tr>
+</table>
+
+</form>
+{% endblock %}

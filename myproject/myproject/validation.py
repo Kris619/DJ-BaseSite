@@ -68,5 +68,10 @@ def clean_usernameRE(data):
 	else:
 		return False
 	
+def clean_emailRE(data):
+	if match("^[\w\d._%-+]+@[\w\d._%-]+.[\w]{2,6}$", data):
+		return data
+	else:
+		return False
 	
 	

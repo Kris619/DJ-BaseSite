@@ -18,6 +18,9 @@ TEMPLATE_DEBUG = DEBUG
 baseurl = "<%baseurl%>"  # "example.com"
 base_title = "<%basetitle%>"
 
+# Time zone support 
+USE_TZ = True
+
 '''
 You need to sign up at http://recaptcha.net/ for a public/private key to use their CAPTCHA service.
 '''
@@ -31,7 +34,8 @@ EMAIL_HOST_USER = "<%HOSTemail%>"
 EMAIL_HOST_PASSWORD = "<%HOSTpass%>"
 EMAIL_PORT = 587
 
-EMAIL_MESSAGE = ROOTDIR + "/<%myproject%>/activation_email.html"
+ACTIVATE_EMAIL = ROOTDIR + "/<%myproject%>/activation_email.html"
+RECOVERY_EMAIL = ROOTDIR + "/<%myproject%>/recovery_email.html"
 
 ADMINS = (
     ("<%admin_name%>", "<%admin_email%>"),

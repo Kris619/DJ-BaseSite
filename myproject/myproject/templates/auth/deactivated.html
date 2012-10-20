@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="activated">
+	The account "{{user_name}}" has been deactivated. No one with this email can reregister unless you contact the admin.
+	<div class="activated_login"><a href="/login/">Login</a></div>
+</div>
+{% endblock %}

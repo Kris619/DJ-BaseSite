@@ -69,6 +69,9 @@ dir templates/admin
 // 		Activation Email
 %here%/myproject/myproject/activation_email.html 2
 
+// 		Recovery Email
+%here%/myproject/myproject/recovery_email.html 2
+
 //		HTML/CSS
 dir static
 dir static/css
@@ -80,12 +83,16 @@ dir static/css
 // 		Auth
 dir templates/auth
 %here%/myproject/myproject/templates/auth/activated.html 2
+%here%/myproject/myproject/templates/auth/deactivated.html 2
 %here%/myproject/myproject/templates/auth/disabled.html 2
 %here%/myproject/myproject/templates/auth/logged_in.html 2
 %here%/myproject/myproject/templates/auth/logged_out.html 2
 %here%/myproject/myproject/templates/auth/login.html 2
 %here%/myproject/myproject/templates/auth/newaccount.html 2
 %here%/myproject/myproject/templates/auth/registration.html 2
+%here%/myproject/myproject/templates/auth/recovery.html 2
+%here%/myproject/myproject/templates/auth/recoveryattempt.html 2
+%here%/myproject/myproject/templates/auth/recoverysuccess.html 2
 
 // Backend Django app
 dir backends root

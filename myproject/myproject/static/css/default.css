@@ -59,6 +59,11 @@ table.loginform td  {
 .returnlink a:hover {color:#000000;}  /* mouse over link */
 .returnlink a:active {color:#000000;}  /* selected link */
 
+.cannotlogin {
+	text-align: center;
+	}
+
+
 /* REGISTER CSS */
 .register_form {
 	text-align: center;

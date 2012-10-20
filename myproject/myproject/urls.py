@@ -25,7 +25,9 @@ urlpatterns = patterns('<%myproject%>.views',
 	url(r'^logout/$', 'logout_user'),
 	url(r'^register/$', 'register_user'),
 	url(r'^activate/$', 'activate_user'),
-	#url(r'^deactivate/$', 'activate_user'), Deactivate needs to be written.
+	url(r'^deactivate/$', 'deactivate_user'),
+	url(r'^recovery/$', 'recover_user'),
+	url(r'^recover/$', 'recover_attempt')
 )
 
 urlpatterns += staticfiles_urlpatterns()
