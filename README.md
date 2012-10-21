@@ -11,14 +11,14 @@ DJ-BaseSite is released under the New BSD License, refer to the LICENSE file in 
 
 ## Change Log
 
-### `0.7` (Oct 20, 2012)
+### [`0.7`](https://github.com/Kris619/DJ-BaseSite/zipball/dce89a3acf181a347d7df7ae5272ca10618b6ca3) (Oct 20, 2012) SHA: [dce89a3acf](https://github.com/Kris619/DJ-BaseSite/tree/dce89a3acf181a347d7df7ae5272ca10618b6ca3)
 * Added the deactivation and account recovery systems.
 * Variable `EMAIL_MESSAGE` was replaced with `ACTIVATE_EMAIL` & `RECOVERY_EMAIL` was added. 
 * The `response` variable was changed in all views to the correct spelling. derp.
 * Function `clean_emailRE()` was added to `validation.py`
 * The function `UserActivationKey()` in `views.py` was renamed to `KeyGen()`
 
-### [`0.5`](https://github.com/Kris619/DJ-BaseSite/zipball/80cdb11749afa9d2ecfcbb0a91f3f867f183bfc3) (Oct 13, 2012) SHA: 80cdb11749afa9d2ecfcbb0a91f3f867f183bfc3
+### [`0.5`](https://github.com/Kris619/DJ-BaseSite/zipball/80cdb11749afa9d2ecfcbb0a91f3f867f183bfc3) (Oct 13, 2012) SHA: [80cdb11749](https://github.com/Kris619/DJ-BaseSite/tree/80cdb11749afa9d2ecfcbb0a91f3f867f183bfc3)
 * login / registration system with Django's default authentication backend
 * activation system (deactivation system not implemented)
 * reCAPTCHA support for registration
@@ -36,9 +36,9 @@ DJ-BaseSite is released under the New BSD License, refer to the LICENSE file in 
 
 * `baseurl`
     * Used to create activation, deactivation and recovery links
-* `admin_name/email` `(`[`official documentation`](https://docs.djangoproject.com/en/1.4/ref/settings/#admins)`)`
+* `admin_name/email` ([official documentation](https://docs.djangoproject.com/en/1.4/ref/settings/#admins))
     * Adds a name and email to the ADMINS tuple in settings. On an error your website will email you logged errors.
-* `secret_key` `(`[`official documentation`](https://docs.djangoproject.com/en/1.4/ref/settings/#secret-key)`)`
+* `secret_key` ([official documentation](https://docs.djangoproject.com/en/1.4/ref/settings/#secret-key))
     * A secure string used to provide cryptographic signing. It is automatically added to a [default Django project](https://docs.djangoproject.com/en/dev/intro/tutorial01/#creating-a-project) in settings.
 * `captcha_publickey/privatekey`
     * DJ-BaseSite uses [reCAPTCHA](http://www.google.com/recaptcha/learnmore) to prevent bots from creating accounts, so you'll need to [get a private and public key from the website](http://www.google.com/recaptcha)
